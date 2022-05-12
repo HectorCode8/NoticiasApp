@@ -6,9 +6,10 @@ import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 
 const ListadoNoticias = () => {
-    const { noticias } = useNoticias()
+    const { noticias, totalNoticias } = useNoticias()
 
-    console.log(noticias)
+    const totalPaginas = Math.ceil(totalNoticias / 20)
+
   return (
     <>
         <Typography
@@ -38,7 +39,7 @@ const ListadoNoticias = () => {
             alignItems={'center'}
         >
                 <Pagination 
-                    count={10} 
+                    count={totalPaginas} 
                     color="primary" 
                 />
         </Stack>
